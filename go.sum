@@ -23,6 +23,8 @@ github.com/shenwei356/util v2020.12.31+incompatible/go.mod h1:n3qhc3bQzlqJ2/5v79
 github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72/go.mod h1:JwIasOWyU6f++ZhiEuf87xNszmSA2myDM2Kzu9HwQUA=
 github.com/spaolacci/murmur3 v1.1.0 h1:7c1g84S4BPRrfL5Xrdp6fOJ206sU9y293DDHaoy0bLI=
 github.com/spaolacci/murmur3 v1.1.0/go.mod h1:JwIasOWyU6f++ZhiEuf87xNszmSA2myDM2Kzu9HwQUA=
+github.com/twmb/murmur3 v1.1.5 h1:i9OLS9fkuLzBXjt6dptlAEyk58fJsSTXbRg3SgVyqgk=
+github.com/twmb/murmur3 v1.1.5/go.mod h1:Qq/R7NUyOfr65zD+6Q5IHKsJLwP7exErjN6lyyq3OSQ=
 github.com/will-rowe/nthash v0.3.0 h1:yN+Il98GRWyp7HdaiEbsE7KC4ySEKtPatm+SLZ5uQBk=
 github.com/will-rowe/nthash v0.3.0/go.mod h1:5ezweuK0J5j+/7lih/RkrSmnxI3hoaPpQiVWJ7rd960=
 github.com/zeebo/wyhash v0.0.1 h1:VEByEMek3iHhV65CgG3SRAWVtg/6TcmbEKj5jPOKDrc=

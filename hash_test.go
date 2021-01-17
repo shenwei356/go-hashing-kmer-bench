@@ -11,7 +11,8 @@ import (
 	orisanoV4 "github.com/orisano/wyhash/v4"
 	"github.com/shenwei356/bio/seq"
 	"github.com/shenwei356/util/bytesize"
-	"github.com/spaolacci/murmur3"
+	spaolacci "github.com/spaolacci/murmur3"
+	twmb "github.com/twmb/murmur3"
 	"github.com/will-rowe/nthash"
 	zeebo "github.com/zeebo/wyhash"
 	"github.com/zeebo/xxh3"
@@ -96,7 +97,7 @@ func BenchmarkXxhashV3Zeebo(b *testing.B) {
 	}
 }
 
-func BenchmarkMurmur3(b *testing.B) {
+func BenchmarkMurmur3Spaolacci(b *testing.B) {
 	for i := range benchSeqs {
 		size := len(benchSeqs[i].Seq)
 
@@ -105,7 +106,36 @@ func BenchmarkMurmur3(b *testing.B) {
 			var _seq *seq.Seq
 			var _ok bool
 			codes := make([]uint64, 0, size)
-			hash := murmur3.New64()
+			hash := spaolacci.New64()
+
+			for j := 0; j < b.N; j++ {
+				slider = benchSeqs[i].Slider(k, 1, false, false)
+				codes = codes[:0]
+				for {
+					_seq, _ok = slider()
+					if !_ok {
+						break
+					}
+
+					hash.Reset()
+					hash.Write(_seq.Seq)
+					codes = append(codes, hash.Sum64())
+				}
+			}
+		})
+	}
+}
+
+func BenchmarkMurmur3Twmb(b *testing.B) {
+	for i := range benchSeqs {
+		size := len(benchSeqs[i].Seq)
+
+		b.Run(bytesize.ByteSize(size).String(), func(b *testing.B) {
+			var slider func() (*seq.Seq, bool)
+			var _seq *seq.Seq
+			var _ok bool
+			codes := make([]uint64, 0, size)
+			hash := twmb.New64()
 
 			for j := 0; j < b.N; j++ {
 				slider = benchSeqs[i].Slider(k, 1, false, false)

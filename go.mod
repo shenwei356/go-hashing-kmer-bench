@@ -14,6 +14,7 @@ require (
 	github.com/shenwei356/bpool v0.0.0-20160710042833-f9e0ee4d0403 // indirect
 	github.com/shenwei356/util v2020.12.31+incompatible
 	github.com/spaolacci/murmur3 v1.1.0
+	github.com/twmb/murmur3 v1.1.5
 	github.com/will-rowe/nthash v0.3.0
 	github.com/zeebo/wyhash v0.0.1
 	github.com/zeebo/xxh3 v0.10.0
